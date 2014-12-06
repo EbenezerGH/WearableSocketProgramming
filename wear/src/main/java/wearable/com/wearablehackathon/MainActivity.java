@@ -73,7 +73,7 @@ public class MainActivity extends Activity implements
     public void onConnected(Bundle connectionHint) {
         String message = "Hello wearable\n Via the data layer";
         //Requires a new thread to avoid blocking the UI
-        new SendToDataLayerThread("/message_path", message).start();
+        //new SendToDataLayerThread("/message_path", message).start();
     }
 
     // Disconnect from the data layer when the Activity stops
