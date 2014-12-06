@@ -20,6 +20,7 @@ public class MainActivity extends Activity implements
 
     GoogleApiClient googleClient;
 
+    String message;
     private TextView mTextView;
     private static String TAG = "switching";
 
@@ -52,13 +53,16 @@ public class MainActivity extends Activity implements
 
         switch (view.getId()) {
             case R.id.switch1:
-                Log.d(TAG, "switch 1 was pressed");
-                break;
+                message = "1";
+                new SendToDataLayerThread("/message_path", message).start();
+                   break;
             case R.id.switch2:
-                Log.d(TAG, "switch 2 was pressed");
+                message = "2";
+                new SendToDataLayerThread("/message_path", message).start();
                 break;
             case R.id.switch3:
-                Log.d(TAG, "switch 3 was pressed");
+                message = "3";
+                new SendToDataLayerThread("/message_path", message).start();
                 break;
 
         }
@@ -74,7 +78,7 @@ public class MainActivity extends Activity implements
     // Send a message when the data layer connection is successful.
     @Override
     public void onConnected(Bundle connectionHint) {
-        String message = "Hello wearable\n Via the data layer";
+        message = "Hello wearable\n Via the data layer";
         //Requires a new thread to avoid blocking the UI
         new SendToDataLayerThread("/message_path", message).start();
     }
