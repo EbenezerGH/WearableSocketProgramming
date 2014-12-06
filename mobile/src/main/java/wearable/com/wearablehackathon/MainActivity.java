@@ -14,6 +14,7 @@ public class MainActivity extends Activity {
 
     private TextView mTextView;
 
+    GlobalMessage globalMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,12 @@ public class MainActivity extends Activity {
         IntentFilter messageFilter = new IntentFilter(Intent.ACTION_SEND);
         MessageReceiver messageReceiver = new MessageReceiver();
         LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver, messageFilter);
+
     }
 
+    public void getText() {
+        mTextView.setText(globalMessage.getMyMessage());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
