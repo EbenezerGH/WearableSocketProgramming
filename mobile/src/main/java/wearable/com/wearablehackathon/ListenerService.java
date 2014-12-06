@@ -22,4 +22,5 @@ public class ListenerService extends WearableListenerService {
             super.onMessageReceived(messageEvent);
         }
     }
+
 }
