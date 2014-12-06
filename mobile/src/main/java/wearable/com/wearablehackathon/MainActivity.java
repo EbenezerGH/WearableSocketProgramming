@@ -1,10 +1,7 @@
 package wearable.com.wearablehackathon;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -12,8 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-    private TextView mTextView;
-
+    TextView mTextView;
     GlobalMessage globalMessage;
 
     @Override
@@ -22,14 +18,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         mTextView = (TextView) findViewById(R.id.switches);
 
-        IntentFilter messageFilter = new IntentFilter(Intent.ACTION_SEND);
-        MessageReceiver messageReceiver = new MessageReceiver();
-        LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver, messageFilter);
 
-    }
-
-    public void getText() {
-        mTextView.setText(globalMessage.getMyMessage());
     }
 
     @Override
