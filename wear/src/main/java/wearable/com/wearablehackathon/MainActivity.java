@@ -29,12 +29,6 @@ public class MainActivity extends Activity implements
         setContentView(R.layout.activity_main);
 
 
-        googleClient = new GoogleApiClient.Builder(this)
-                .addApi(Wearable.API)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .build();
-
         final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
 
@@ -43,6 +37,12 @@ public class MainActivity extends Activity implements
                 mTextView = (TextView) stub.findViewById(R.id.text);
             }
         });//End of setOnLayoutInflatedListener
+
+        googleClient = new GoogleApiClient.Builder(this)
+                .addApi(Wearable.API)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .build();
 
 
     }//End of onCreate
