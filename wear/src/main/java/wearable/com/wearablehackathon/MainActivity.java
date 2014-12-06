@@ -63,19 +63,36 @@ public class MainActivity extends Activity implements
     }
 
     @Override
-    public void onConnected(Bundle bundle) {
-
+    protected void onStart() {
+        super.onStart();
+        googleClient.connect();
     }
 
+    // Send a message when the data layer connection is successful.
     @Override
-    public void onConnectionSuspended(int i) {
+    public void onConnected(Bundle connectionHint) {
+        String message = "Hello wearable\n Via the data layer";
+        //Requires a new thread to avoid blocking the UI
+        new SendToDataLayerThread("/message_path", message).start();
+    }
 
+    // Disconnect from the data layer when the Activity stops
+    @Override
+    protected void onStop() {
+        if (null != googleClient && googleClient.isConnected()) {
+            googleClient.disconnect();
+        }
+        super.onStop();
+    }
+
+    // Placeholders for required connection callbacks
+    @Override
+    public void onConnectionSuspended(int cause) {
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-
     }
+
+
 }
-
-
