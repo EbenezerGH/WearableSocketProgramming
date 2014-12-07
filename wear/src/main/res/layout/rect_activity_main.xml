@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="8dp"
-        android:text="Select A Switch"
+        android:text="Find My Phone"
         android:textSize="15sp" />
 
     <Button
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:text="Switch1"
+        android:text="Turn On"
         android:onClick="onClick" />
 
     <Button
@@ -33,17 +33,7 @@
         android:layout_alignEnd="@+id/switch1"
         android:layout_alignStart="@+id/switch1"
         android:layout_below="@+id/switch1"
-        android:text="Switch2"
-        android:onClick="onClick" />
-
-    <Button
-        android:id="@+id/switch3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/switch2"
-        android:layout_alignStart="@+id/switch2"
-        android:layout_below="@+id/switch2"
-        android:text="Switch3"
+        android:text="Turn Off"
         android:onClick="onClick" />
 
 

@@ -60,10 +60,6 @@ public class MainActivity extends Activity implements
                 message = "2";
                 new SendToDataLayerThread("/message_path", message).start();
                 break;
-            case R.id.switch3:
-                message = "3";
-                new SendToDataLayerThread("/message_path", message).start();
-                break;
 
         }
 
